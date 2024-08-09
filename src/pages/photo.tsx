@@ -7,17 +7,21 @@ import Lightbox from "yet-another-react-lightbox";
 type Props = {};
 
 const images = require.context("../../public/portfolio/", true);
-const imageList = images
-	.keys()
-	.map((image) => images(image))
-	.map((image) => image.default) as {
-	blurDataURL: string;
-	blurHeight: number;
-	blurWidth: number;
-	height: number;
-	src: string;
-	width: number;
-}[];
+const imageList = (
+	images
+		.keys()
+		.map((image) => images(image))
+		.map((image) => image.default) as {
+		blurDataURL: string;
+		blurHeight: number;
+		blurWidth: number;
+		height: number;
+		src: string;
+		width: number;
+	}[]
+).sort((a, b) =>
+	a.src.split("/").pop()!.localeCompare(b.src.split("/").pop()!)
+);
 
 const Photo: FC<Props> = () => {
 	const [isOpen, setIsOpen] = useState(false);
