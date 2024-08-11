@@ -14,8 +14,7 @@ const Me: FC<Props> = () => {
 				className="rounded-full"
 			/>
 			<p>
-				Já jsem Ondra, lidé mi říkají MAGORE! Rád fotím ptáky a nerad fotím
-				kytky.
+			Fotografii se věnuji již řadu let, přičemž mojí specializací je fotografie přírody. Kromě toho se zaměřuji také na portrétní, eventovou a svatební fotografii.
 			</p>
 		</div>
 	);
