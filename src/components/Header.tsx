@@ -10,8 +10,8 @@ export const Header: FC = () => {
 			<div className="flex flex-row items-center justify-evenly gap-4 p-4">
 				<Navigation
 					links={[
-						{ name: "Portfólio", href: "/photo" },
-						{ name: "O mně", href: "/me" },
+						{ name: "Portfólio", href: "/portfolio" },
+						{ name: "O mně", href: "/o-mne" },
 					]}
 				/>
 				<Link href="/">
@@ -19,8 +19,8 @@ export const Header: FC = () => {
 				</Link>
 				<Navigation
 					links={[
-						{ name: "Ceník", href: "/price" },
-						{ name: "Kontakt", href: "/contact" },
+						{ name: "Ceník", href: "/cenik" },
+						{ name: "Kontakt", href: "/kontakt" },
 					]}
 				/>
 			</div>
