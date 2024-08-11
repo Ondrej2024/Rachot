@@ -1,22 +1,21 @@
 import Link from "next/link";
 import { FC } from "react";
 
-const links = [
-	{ name: "Úvod", href: "/" },
-	{ name: "Portfólio", href: "/photo" },
-	{ name: "O mě", href: "/me" },
-	{ name: "Ceník", href: "/price" },
-	{ name: "Kontakt", href: "/contact" },
-];
+type Props = {
+	links: {
+		name: string;
+		href: string;
+	}[];
+};
 
-export const Navigation: FC = () => {
+export const Navigation: FC<Props> = ({ links }) => {
 	return (
-		<div className="flex flex-row items-center gap-4">
+		<div className="flex flex-row items-center gap-4 ">
 			{links.map((link) => (
 				<Link
 					key={link.href}
 					href={link.href}
-					className="text-sm text-gray-500 hover:text-gray-700"
+					className="text-2xl text-gray-400 hover:text-gray-900"
 				>
 					{link.name}
 				</Link>

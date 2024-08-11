@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Inter as FontSans } from "next/font/google";
+import { Playfair_Display as FontSans } from "next/font/google";
 import type { AppProps } from "next/app";
 import { cn } from "@/lib/utils";
 import { Layout } from "@/components/Layout";
