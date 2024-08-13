@@ -11,11 +11,10 @@ const Me: FC<Props> = () => {
 				alt="Me"
 				width={300}
 				height={300}
-				className="rounded-full"
+				
 			/>
 			<p>
-				Já jsem Ondra, lidé mi říkají MAGORE! Rád fotím ptáky a nerad fotím
-				kytky.
+				Mé jméno je Ondřej, fotografii se věnuji již řadu let, vždy jsem byl však zaměřený spíše na přírodu a ne kontakt s lidmi. Po mém prvním focení svatby jsem však zjistil, že mě to náramně baví. Proto jsem se rozhodl, že budu toto nadšení sdílet...
 			</p>
 		</div>
 	);

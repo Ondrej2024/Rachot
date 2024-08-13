@@ -25,37 +25,43 @@ const prices: Category[] = [
 		category: "Svatby",
 		items: [
 			{
-				title: "Balíček standart",
+				title: "Balíček Láska v kapse",
 				list: [
-					"3 hodiny fotografování",
-					"Doprava do 30 KM",
+					"6 hodin fotografování",
 					"Až 150 upravených fotografií",
+					"Předsvatební schůzka",
+					"Fotografie zahrnují přípravy nevěsty a ženicha, samotný svatební obřad, fotografie skupin i novomanželů",
+					"Doprava do 30 KM",
+			
 				],
 				description: "Během tří hodinek stihneme obřad a párové foto, skupinky",
 				price: "8000,-",
 			},
 			{
-				title: "Balíček smart",
+				title: "Balíček Zlatá vzpomínka",
 				list: [
-					"6 hodin fotografování",
+					"10 hodin fotografování",
+					"Až 300 upravených fotografií",
+					"Předsvatební schůzka",
 					"doprava do 100 KM",
-					"Až 350 upravených fotografií",
+					
 				],
 				description:
 					"Během 6 hodin stihneme vyfotografovat přípravy, obřad a párové foto, skupinky, oběd a první tanec",
-				price: "15000,-",
+				price: "12 000,-",
 			},
 			{
-				title: "Balíček all in",
+				title: "Balíček Celý příběh",
 				list: [
-					"celodenní fotografování (dokud to jde)",
+					"14 hodin fotografování",
+					"Až 400 upravených fotografií",
+					"Předsvatební schůzka",
 					"doprava do 100 KM",
-					"Až 600 upravených fotografií",
-					"Předsvatební focení",
+				
 				],
 				description:
 					"Během celho dne stihneme vyfotografovat přípravy, obřad a párové foto, skupinky, oběd a první tanec, házení květinou + druhé párové foto (západ slunce) a večerní párty",
-				price: "17000,-",
+				price: "15 000,-",
 			},
 		],
 	},
@@ -63,7 +69,7 @@ const prices: Category[] = [
 		category: "Portréty",
 		items: [
 			{
-				title: "Balíček standart",
+				title: "Rodinné focení",
 				list: [
 					"3 hodiny fotografování",
 					"Doprava do 30 KM",
@@ -73,7 +79,7 @@ const prices: Category[] = [
 				price: "8000,-",
 			},
 			{
-				title: "Balíček smart",
+				title: "Párové focení",
 				list: [
 					"6 hodin fotografování",
 					"doprava do 100 KM",
@@ -84,7 +90,7 @@ const prices: Category[] = [
 				price: "15000,-",
 			},
 			{
-				title: "Balíček all in",
+				title: "Oslavy",
 				list: [
 					"celodenní fotografování (dokud to jde)",
 					"doprava do 100 KM",
