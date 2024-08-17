@@ -9,7 +9,7 @@ const Contact: FC<Props> = () => {
 			<h1 className="text-3xl font-bold">Kontaktujte mě!</h1>
 			<ul>
 				<li>
-					<a href="mailto:ondra.klein20@seznam.cz">ondra.klein20@seznam.cz</a>
+					<a href="mailto:hajanskyfotograf@seznam.cz">hajanskyfotograf@seznam.cz</a>
 				</li>
 				<li>
 					<a href="tel:+420604701507">+420 604 701 507</a>
