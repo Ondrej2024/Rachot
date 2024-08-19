@@ -7,7 +7,7 @@ const Me: FC<Props> = () => {
 	return (
 		<div className="flex flex-row justify-between gap-4">
 			<Image
-				src={"/me.jpg"}
+				src={"/me.png"}
 				alt="Me"
 				width={300}
 				height={300}
