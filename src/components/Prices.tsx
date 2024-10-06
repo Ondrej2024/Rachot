@@ -7,6 +7,16 @@ import {
 	CardHeader,
 	CardTitle,
 } from "./ui/card";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "./ui/carousel";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Title } from "./Title";
 
 type Item = {
 	title: string;
@@ -20,8 +30,8 @@ type Category = {
 	items: Item[];
 };
 
-const prices: Category[] = [
-	{
+const prices: Record<"wedding" | "next", Category> = {
+	wedding: {
 		category: "Svatby",
 		items: [
 			{
@@ -32,7 +42,6 @@ const prices: Category[] = [
 					"Předsvatební schůzka",
 					"Fotografie zahrnují přípravy nevěsty a ženicha, samotný svatební obřad, fotografie skupin i novomanželů",
 					"Doprava do 30 KM",
-			
 				],
 				description: "Během tří hodinek stihneme obřad a párové foto, skupinky",
 				price: "8000,-",
@@ -44,7 +53,6 @@ const prices: Category[] = [
 					"Až 300 upravených fotografií",
 					"Předsvatební schůzka",
 					"doprava do 100 KM",
-					
 				],
 				description:
 					"Během 6 hodin stihneme vyfotografovat přípravy, obřad a párové foto, skupinky, oběd a první tanec",
@@ -57,7 +65,6 @@ const prices: Category[] = [
 					"Až 400 upravených fotografií",
 					"Předsvatební schůzka",
 					"doprava do 100 KM",
-				
 				],
 				description:
 					"Během celho dne stihneme vyfotografovat přípravy, obřad a párové foto, skupinky, oběd a první tanec, házení květinou + druhé párové foto (západ slunce) a večerní párty",
@@ -65,8 +72,8 @@ const prices: Category[] = [
 			},
 		],
 	},
-	{
-		category: "Portréty",
+	next: {
+		category: "Další focení",
 		items: [
 			{
 				title: "Rodinné focení",
@@ -98,47 +105,163 @@ const prices: Category[] = [
 					"Předsvatební focení",
 				],
 				description:
-					"Během celho dne stihneme vyfotografovat přípravy, obřad a párové foto, skupinky, oběd a první tanec, házení květinou + druhé párové foto (západ slunce) a večerní párty",
+					"Během celeho dne stihneme vyfotografovat přípravy, obřad a párové foto, skupinky, oběd a první tanec, házení květinou + druhé párové foto (západ slunce) a večerní párty",
 				price: "17000,-",
 			},
 		],
+	},
+};
+
+type Review = {
+	img: string;
+	text: string;
+};
+
+const reviews: Review[] = [
+	{
+		img: "/portfolio/10.png",
+		text: "1 Ondřej is a pleasant photographer who has no problem with anything, he's a great guy. Vendula and Ondřej 2024",
+	},
+	{
+		img: "/portfolio/10.png",
+		text: "2 Ondřej is a pleasant photographer who has no problem with anything, he's a great guy. Vendula and Ondřej 2024",
+	},
+	{
+		img: "/portfolio/10.png",
+		text: "3 Ondřej is a pleasant photographer who has no problem with anything, he's a great guy. Vendula and Ondřej 2024",
+	},
+	{
+		img: "/portfolio/10.png",
+		text: "4 Ondřej is a pleasant photographer who has no problem with anything, he's a great guy. Vendula and Ondřej 2024",
+	},
+	{
+		img: "/portfolio/10.png",
+		text: "5 Ondřej is a pleasant photographer who has no problem with anything, he's a great guy. Vendula and Ondřej 2024",
 	},
 ];
 
 export const Prices: FC = () => {
 	return (
-		<>
-			<div className="flex flex-col gap-4">
-				{prices.map((category) => (
-					<div key={category.category} className="flex flex-col gap-4">
-						<h2 className="text-2xl font-bold">{category.category}</h2>
-						<div className="flex flex-row flex-wrap gap-4">
-							{category.items.map((item) => (
-								<Card
-									key={item.title}
-									className="flex flex-col gap-4 p-3 w-[350px]"
-								>
-									<CardHeader className="text-xl font-bold">
-										<CardTitle>{item.title}</CardTitle>
-									</CardHeader>
-									<CardContent className="list-disc list-inside">
-										{item.list.map((listItem) => (
-											<li key={listItem}>{listItem}</li>
-										))}
-									</CardContent>
-									<CardDescription className="text-sm">
-										{item.description}
-									</CardDescription>
-									<CardFooter className="text-2xl font-bold">
-										<span className="text-gray-500">Cena:</span>
-										<span className="text-3xl font-bold">{item.price}</span>
-									</CardFooter>
-								</Card>
+		<main className="space-y-12">
+			<section className="flex justify-between space-x-4">
+				<Image
+					src="/portfolio/10.png"
+					alt="Wedding Photo 1"
+					width="300"
+					height="400"
+					style={{ aspectRatio: "300/400", objectFit: "cover" }}
+				/>
+				<div className="flex flex-col items-center justify-center">
+					<h1 className="text-4xl font-bold">Svatební focení</h1>
+				</div>
+				<Image
+					src="/portfolio/10.png"
+					alt="Wedding Photo 2"
+					width="300"
+					height="400"
+					style={{ aspectRatio: "300/400", objectFit: "cover" }}
+				/>
+			</section>
+			<section className="grid grid-cols-3 gap-8 text-center">
+				{prices["wedding"].items.map((item, index) => (
+					<Card
+						key={item.title}
+						className={cn(
+							"flex flex-col gap-4 p-3 w-[350px] border-none shadow-none",
+							index % 2 === 0 && "mt-80 bg-slate-50",
+							index % 2 === 1 && "mb-auto bg-slate-200"
+						)}
+					>
+						<CardHeader className="text-xl font-bold">
+							<CardTitle>{item.title}</CardTitle>
+						</CardHeader>
+						<CardContent className="list-inside list-none">
+							{item.list.map((listItem) => (
+								<li key={listItem} className="">
+									{listItem}
+								</li>
 							))}
-						</div>
-					</div>
+						</CardContent>
+						<CardDescription className="text-sm">
+							{item.description}
+						</CardDescription>
+						<CardFooter className="text-2xl font-bold self-center">
+							<span>Cena {item.price}</span>
+						</CardFooter>
+					</Card>
 				))}
-			</div>
-		</>
+			</section>
+			<section className="text-center">
+				<Title>Další focení</Title>
+				<div className="grid grid-cols-1 gap-8 mt-8">
+					{prices["next"].items.map((item, index) => (
+						<div
+							key={item.title}
+							className={cn(
+								"flex items-center",
+								index % 2 === 0 && "justify-end"
+							)}
+						>
+							{index % 2 === 0 && (
+								<div className="text-right max-w-screen-sm">
+									<p>{item.description}</p>
+									<p>Cena {item.price}</p>
+								</div>
+							)}
+							<Image
+								src="/portfolio/10.png"
+								alt="Family Photo"
+								className="ml-8 mr-8"
+								width="200"
+								height="300"
+								style={{ aspectRatio: "200/300", objectFit: "cover" }}
+							/>
+							{index % 2 === 1 && (
+								<div className="text-left">
+									<p>{item.description}</p>
+									<p>Cena {item.price}</p>
+								</div>
+							)}
+						</div>
+					))}
+				</div>
+				<p className="text-red-500 mt-4">
+					Nenašli jste co jste hledali? Pojďme se spolu domluvit na jiném
+					focení! kontaktujte mě!
+				</p>
+			</section>
+			<section className="text-center">
+				<Title>
+					Co si o mně
+					<br />
+					myslí klienti?
+				</Title>
+				<Carousel
+					className="w-full max-w-4xl mx-auto"
+					opts={{ align: "center", loop: true }}
+				>
+					<CarouselContent>
+						{reviews.map((item, index) => (
+							<CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+								<div className="p-1">
+									<div className="flex justify-around mt-8">
+										<Image
+											src={item.img}
+											alt="Client Photo 1"
+											width="200"
+											height="300"
+											style={{ aspectRatio: "200/300", objectFit: "cover" }}
+										/>
+									</div>
+									<p className="mt-4">{item.text}</p>
+								</div>
+							</CarouselItem>
+						))}
+					</CarouselContent>
+					<CarouselPrevious />
+					<CarouselNext />
+				</Carousel>
+			</section>
+		</main>
 	);
 };
