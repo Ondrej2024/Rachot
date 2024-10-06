@@ -8,18 +8,14 @@ export const Header: FC = () => {
 	return (
 		<>
 			<div className="flex flex-row items-center justify-evenly gap-4 p-4">
-				<Navigation
-					links={[
-						{ name: "Portfólio", href: "/portfolio" },
-						{ name: "O mně", href: "/o-mne" },
-					]}
-				/>
 				<Link href="/">
 					<Logo />
 				</Link>
 				<Navigation
 					links={[
-						{ name: "Ceník", href: "/cenik" },
+						{ name: "O mně", href: "/o-mne" },
+						{ name: "Portfólio", href: "/portfolio" },
+						{ name: "Nabídka", href: "/nabidka" },
 						{ name: "Kontakt", href: "/kontakt" },
 					]}
 				/>
